@@ -65,7 +65,7 @@ endif
 Plug 'honza/vim-snippets'
 
 "" Color
-plug 'tomasr/molokai'
+Plug 'tomasr/molokai'
 
 "*****************************************************************************
 "" Custom bundles
@@ -314,6 +314,9 @@ nnoremap <leader>so :OpenSession<Space>
 nnoremap <leader>ss :SaveSession<Space>
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
+
+" neovimrc
+nnoremap <leader>nv :tabe ~/.config/nvim/init.vim<CR>
 
 "" Tabs
 nnoremap <Tab> gt
