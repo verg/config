@@ -223,8 +223,8 @@ cnoreabbrev Qall qall
 cnoreabbrev X x
 cnoreabbrev Xa xa
 cnoreabbrev Sp sp
-cnoreabbrev Vs Vs
-cnoreabbrev Vsp Vsp
+cnoreabbrev Vs vs
+cnoreabbrev Vsp vsp
 
 "" NERDTree configuration
 let g:NERDTreeChDirMode=2
@@ -300,9 +300,11 @@ set autoread
 "" Mappings
 "*****************************************************************************
 
-"" Split
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
+"Move around splits with <c-hjkl>
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 "" Git
 noremap <Leader>ga :Gwrite<CR>
