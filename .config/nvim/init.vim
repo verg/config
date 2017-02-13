@@ -26,8 +26,6 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -41,6 +39,8 @@ Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 
 let g:make = 'gmake'
 if exists('make')
@@ -220,6 +220,11 @@ cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
+cnoreabbrev X x
+cnoreabbrev Xa xa
+cnoreabbrev Sp sp
+cnoreabbrev Vs Vs
+cnoreabbrev Vsp Vsp
 
 "" NERDTree configuration
 let g:NERDTreeChDirMode=2
@@ -316,6 +321,7 @@ nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
 " neovimrc
+nnoremap <leader>vi :tabe ~/.config/nvim/init.vim<CR>
 nnoremap <leader>nv :tabe ~/.config/nvim/init.vim<CR>
 
 "" Tabs
@@ -347,7 +353,7 @@ if executable('ag')
 endif
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-let g:ctrlp_map = '<leader>e'
+"let g:ctrlp_map = '<leader>e'
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 
@@ -457,7 +463,8 @@ let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+"let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:syntastic_check_on_open=1
 
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -500,6 +507,7 @@ augroup go
   au FileType go nmap <C-g> :GoDecls<cr>
   au FileType go imap <C-g> <esc>:<C-u>GoDecls<cr>
   au FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+
 
 augroup END
 
@@ -552,3 +560,6 @@ if filereadable(expand("~/.config/nvim/local_init.vim"))
   source ~/.config/nvim/local_init.vim
 endif
 
+"Yank entire file
+map <Leader>ca ggVG"*y
+map <Leader>rw :%s/\<C-r><C-w>\>/
