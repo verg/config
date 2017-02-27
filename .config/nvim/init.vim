@@ -324,7 +324,7 @@ nnoremap <leader>sc :CloseSession<CR>
 
 " neovimrc
 nnoremap <leader>vi :tabe ~/.config/nvim/init.vim<CR>
-nnoremap <leader>nv :tabe ~/.config/nvim/init.vim<CR>
+nnoremap <leader>n :noh<CR>
 
 "" Tabs
 nnoremap <Tab> gt
@@ -464,7 +464,8 @@ endfunction
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+"let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_go_checkers = ['govet', 'errcheck']
 "let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:syntastic_check_on_open=1
 
