@@ -6,8 +6,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 export GOPATH=$HOME/go
-export GOROOT=$HOME/go
-export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$GOPATH/bin
+export GOROOT=/usr/local/Cellar/go/1.8/libexec
+
 
 
 # Show contents of directory after cd-ing into it
@@ -35,3 +36,8 @@ alias code= "cd ~/code"
 alias ...='../..'
 alias ....='../../..'
 alias gosnip="vi ~/.config/nvim/plugged/vim-go/gosnippets/UltiSnips/go.snippets"
+alias got='go test'
+alias gof='go fmt'
+alias gob='go build'
+alias goc='go clean'
+alias gor='go run'
